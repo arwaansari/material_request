@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="material_request_user_security">
+             <field name="name">Material Request</field>
+<!--             <field name="description">User access levels for Material Request module</field>-->
+             <field name="sequence">10</field>
+        </record>
+        <record id="material_request_user_access" model="res.groups">
+            <field name="name">Users</field>
+            <field name="category_id" ref="material_request_user_security"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="material_request_department_manager_access" model="res.groups">
+            <field name="name">Department Manager</field>
+            <field name="category_id" ref="material_request_user_security"/>
+            <field name="implied_ids" eval="[(4, ref('material_request.material_request_user_access'))]"/>
+
+        </record>
+         <record id="material_request_head_access" model="res.groups">
+            <field name="name">Head</field>
+            <field name="category_id" ref="material_request_user_security"/>
+             <field name="implied_ids" eval="[(4, ref('material_request.material_request_department_manager_access'))]"/>
+        </record>
+    </data>
+</odoo>

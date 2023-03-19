@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem id="material_request_root" name="Material Request">
+            <menuitem id="material_request_first_level_menu" name="Material Request" sequence="0">
+                <menuitem id="material_request_menu_action" action="material_request_action"/>
+             </menuitem>
+        </menuitem>
+    </data>
+</odoo>
